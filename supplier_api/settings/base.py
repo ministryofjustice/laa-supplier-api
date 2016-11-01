@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'moj_irat',
     'corsheaders',
 
+    'suppliers',
     'api',
 ]
 
