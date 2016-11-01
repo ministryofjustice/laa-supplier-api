@@ -1,2 +1,4 @@
 # pip install -r requirements.txt --process-dependency-links
-git+https://github.com/ministryofjustice/django-gov.git@874df1aa6b6558d45581fc4fc523a08d01679949
+git+https://github.com/ministryofjustice/django-gov.git@d7189f46d3b441668ce1a64e9bffb0aea6b1fad3
+
+psycopg2==2.6.2
