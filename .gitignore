@@ -1,0 +1,3 @@
+.idea
+supplier_api/settings/local.py
+*.pyc
