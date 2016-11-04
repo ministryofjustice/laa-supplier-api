@@ -26,14 +26,14 @@ class Supplier(TimeStampedModel):
         choices=SUTY_SUPPLIER_TYPES)
     vat_reg = models.BooleanField()
     address = models.TextField()
-    postcode = models.CharField(max_length=10)
-    country = models.CharField(max_length=20)
+    postcode = models.CharField(max_length=10, null=True)
+    country = models.CharField(max_length=50, null=True)
 
 
 class Defendant(TimeStampedModel):
     code = models.PositiveIntegerField(unique=True, db_index=True)
-    first_name = models.CharField(max_length=20)
-    last_name = models.CharField(max_length=20)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     date_of_birth = models.DateField()
 
 
