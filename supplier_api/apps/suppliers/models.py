@@ -37,6 +37,7 @@ class Defendant(TimeStampedModel):
 
 
 class RepresentationOrder(TimeStampedModel):
+    code = models.PositiveSmallIntegerField(db_index=True)
     defendant = models.ForeignKey('Defendant', related_name='reporders')
     supplier = models.ForeignKey('Supplier', related_name='reporders')
     date = models.DateField()
