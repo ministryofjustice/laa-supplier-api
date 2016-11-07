@@ -2,9 +2,8 @@
 from rest_framework import viewsets
 from rest_framework_extensions.mixins import NestedViewSetMixin
 
-from .models import Supplier, RepresentationOrder, Defendant
-from .serializers import (SupplierSerializer, RepresentationOrderSerializer,
-                          DefendantSerializer)
+from .models import Supplier, RepresentationOrder
+from .serializers import SupplierSerializer, RepresentationOrderSerializer
 
 
 class AllObjectMixin():
@@ -44,20 +43,4 @@ class BaseRepresentationOrderViewSet(
     """
     model = RepresentationOrder
     serializer_class = RepresentationOrderSerializer
-    lookup_field = 'code'
-
-
-class BaseDefendantViewSet(
-    NestedViewSetMixin, AllObjectMixin, viewsets.ReadOnlyModelViewSet):
-    """
-    API endpoint that allows defendant to be viewed.
-
-    retrieve:
-    Return a defendant instance.
-
-    list:
-    Return all defendants, ordered by id
-    """
-    model = Defendant
-    serializer_class = DefendantSerializer
     lookup_field = 'code'
