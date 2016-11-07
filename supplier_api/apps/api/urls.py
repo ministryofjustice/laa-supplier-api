@@ -8,7 +8,7 @@ from suppliers.views import (
     BaseSupplierViewSet, BaseRepresentationOrderViewSet)
 
 
-router = ExtendedSimpleRouter()
+router = ExtendedSimpleRouter(trailing_slash=False)
 (
     router.register(r'suppliers', BaseSupplierViewSet, base_name='suppliers')
           .register(r'reporders',
@@ -22,5 +22,5 @@ schema_view = get_swagger_view(
 
 urlpatterns = (
     url(r'^', include(router.urls)),
-    url(r'^docs/$', schema_view)
+    url(r'^docs$', schema_view)
 )
