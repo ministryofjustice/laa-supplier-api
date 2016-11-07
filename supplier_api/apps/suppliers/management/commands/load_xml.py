@@ -82,6 +82,7 @@ class Command(BaseCommand):
             Defendant.objects.get_or_create(
                 code=defendant.get('id'),
                 first_name=defendant.get('firstName'),
+                other_name=defendant.get('otherName'),
                 last_name=defendant.get('lastName'),
                 date_of_birth=parse_date(defendant.get('dateOfBirth')),
             )

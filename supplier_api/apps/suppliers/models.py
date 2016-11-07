@@ -33,6 +33,7 @@ class Supplier(TimeStampedModel):
 class Defendant(TimeStampedModel):
     code = models.PositiveIntegerField(unique=True, db_index=True)
     first_name = models.CharField(max_length=50)
+    other_name = models.CharField(max_length=50, null=True, blank=True)
     last_name = models.CharField(max_length=50)
     date_of_birth = models.DateField()
 
