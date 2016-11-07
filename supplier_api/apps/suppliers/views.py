@@ -24,7 +24,7 @@ class BaseSupplierViewSet(
     Return a supplier instance.
 
     list:
-    Return all supplier, ordered by id
+    Return all suppliers, ordered by id
     """
     model = Supplier
     serializer_class = SupplierSerializer
@@ -40,7 +40,7 @@ class BaseRepresentationOrderViewSet(
     Return a rep order instance.
 
     list:
-    Return all rep order, ordered by id
+    Return all rep orders, ordered by id
     """
     model = RepresentationOrder
     serializer_class = RepresentationOrderSerializer
@@ -56,7 +56,7 @@ class BaseDefendantViewSet(
     Return a defendant instance.
 
     list:
-    Return all defendant, ordered by id
+    Return all defendants, ordered by id
     """
     model = Defendant
     serializer_class = DefendantSerializer
