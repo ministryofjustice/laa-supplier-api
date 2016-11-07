@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from rest_framework import viewsets
+from rest_framework_extensions.mixins import NestedViewSetMixin
 
 from .models import Supplier, RepresentationOrder, Defendant
 from .serializers import (SupplierSerializer, RepresentationOrderSerializer,
@@ -14,7 +15,8 @@ class AllObjectMixin():
         return self.model.objects.all()
 
 
-class BaseSupplierViewSet(AllObjectMixin, viewsets.ReadOnlyModelViewSet):
+class BaseSupplierViewSet(
+    NestedViewSetMixin, AllObjectMixin, viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows suppliers to be viewed.
 
@@ -26,10 +28,11 @@ class BaseSupplierViewSet(AllObjectMixin, viewsets.ReadOnlyModelViewSet):
     """
     model = Supplier
     serializer_class = SupplierSerializer
+    lookup_field = 'code'
 
 
-class BaseRepresentationOrderViewSet(AllObjectMixin,
-                                     viewsets.ReadOnlyModelViewSet):
+class BaseRepresentationOrderViewSet(
+    NestedViewSetMixin, AllObjectMixin, viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows rep orders to be viewed.
 
@@ -41,9 +44,11 @@ class BaseRepresentationOrderViewSet(AllObjectMixin,
     """
     model = RepresentationOrder
     serializer_class = RepresentationOrderSerializer
+    lookup_field = 'code'
 
 
-class BaseDefendantViewSet(AllObjectMixin, viewsets.ReadOnlyModelViewSet):
+class BaseDefendantViewSet(
+    NestedViewSetMixin, AllObjectMixin, viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows defendant to be viewed.
 
@@ -55,3 +60,4 @@ class BaseDefendantViewSet(AllObjectMixin, viewsets.ReadOnlyModelViewSet):
     """
     model = Defendant
     serializer_class = DefendantSerializer
+    lookup_field = 'code'
