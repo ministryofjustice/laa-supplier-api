@@ -80,7 +80,7 @@ class Command(BaseCommand):
 
         for defendant in get_records(options['defendants']):
             Defendant.objects.get_or_create(
-                code=defendant.get('defID'),
+                code=defendant.get('id'),
                 first_name=defendant.get('firstName'),
                 last_name=defendant.get('lastName'),
                 date_of_birth=parse_date(defendant.get('dateOfBirth')),
