@@ -14,7 +14,7 @@ class AllObjectMixin():
         return self.model.objects.all()
 
 
-class BaseSupplierViewSet(viewsets.ReadOnlyModelViewSet, AllObjectMixin):
+class BaseSupplierViewSet(AllObjectMixin, viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows suppliers to be viewed.
 
@@ -28,7 +28,8 @@ class BaseSupplierViewSet(viewsets.ReadOnlyModelViewSet, AllObjectMixin):
     serializer_class = SupplierSerializer
 
 
-class BaseRepresentationOrderViewSet(viewsets.ReadOnlyModelViewSet, AllObjectMixin):
+class BaseRepresentationOrderViewSet(AllObjectMixin,
+                                     viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows rep orders to be viewed.
 
@@ -42,7 +43,7 @@ class BaseRepresentationOrderViewSet(viewsets.ReadOnlyModelViewSet, AllObjectMix
     serializer_class = RepresentationOrderSerializer
 
 
-class BaseDefendantViewSet(viewsets.ReadOnlyModelViewSet, AllObjectMixin):
+class BaseDefendantViewSet(AllObjectMixin, viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows defendant to be viewed.
 

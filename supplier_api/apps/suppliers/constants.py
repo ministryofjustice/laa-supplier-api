@@ -3,5 +3,7 @@ from extended_choices import Choices
 
 
 SUTY_SUPPLIER_TYPES = Choices(
-    ('SLCTR_SITE', 1, 'Solicitor site')
+    ('ADVOCATE', 1, 'Advocate'),
+    ('CHAMBERS', 2, 'Chambers'),
+    ('SLCTR_SITE', 3, 'Solicitor site')
 )
