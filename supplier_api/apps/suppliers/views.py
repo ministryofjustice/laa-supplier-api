@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from rest_framework import viewsets
+from rest_framework_extensions.mixins import NestedViewSetMixin
 
-from .models import Supplier, RepresentationOrder, Defendant
-from .serializers import (SupplierSerializer, RepresentationOrderSerializer,
-                          DefendantSerializer)
+from .models import Supplier, RepresentationOrder
+from .serializers import SupplierSerializer, RepresentationOrderSerializer
 
 
 class AllObjectMixin():
@@ -14,7 +14,8 @@ class AllObjectMixin():
         return self.model.objects.all()
 
 
-class BaseSupplierViewSet(AllObjectMixin, viewsets.ReadOnlyModelViewSet):
+class BaseSupplierViewSet(
+    NestedViewSetMixin, AllObjectMixin, viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows suppliers to be viewed.
 
@@ -22,14 +23,15 @@ class BaseSupplierViewSet(AllObjectMixin, viewsets.ReadOnlyModelViewSet):
     Return a supplier instance.
 
     list:
-    Return all supplier, ordered by id
+    Return all suppliers, ordered by id
     """
     model = Supplier
     serializer_class = SupplierSerializer
+    lookup_field = 'code'
 
 
-class BaseRepresentationOrderViewSet(AllObjectMixin,
-                                     viewsets.ReadOnlyModelViewSet):
+class BaseRepresentationOrderViewSet(
+    NestedViewSetMixin, AllObjectMixin, viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows rep orders to be viewed.
 
@@ -37,21 +39,8 @@ class BaseRepresentationOrderViewSet(AllObjectMixin,
     Return a rep order instance.
 
     list:
-    Return all rep order, ordered by id
+    Return all rep orders, ordered by id
     """
     model = RepresentationOrder
     serializer_class = RepresentationOrderSerializer
-
-
-class BaseDefendantViewSet(AllObjectMixin, viewsets.ReadOnlyModelViewSet):
-    """
-    API endpoint that allows defendant to be viewed.
-
-    retrieve:
-    Return a defendant instance.
-
-    list:
-    Return all defendant, ordered by id
-    """
-    model = Defendant
-    serializer_class = DefendantSerializer
+    lookup_field = 'code'
