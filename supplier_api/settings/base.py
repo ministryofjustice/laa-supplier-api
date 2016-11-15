@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'CHANGE_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -127,8 +127,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get('DB_NAME', 'supplier_api'),
-        'USER': os.environ.get('DB_USERNAME', 'postgres'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
+        'USER': os.environ.get('DB_USERNAME', 'postgres'),#tsuru
+        'PASSWORD': os.environ.get('DB_PASSWORD', ''),#tsurudev
         'HOST': os.environ.get('DB_HOST', ''),
         'PORT': os.environ.get('DB_PORT', ''),
     }
