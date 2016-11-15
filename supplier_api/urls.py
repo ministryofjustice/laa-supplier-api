@@ -27,3 +27,9 @@ urlpatterns = [
     url(r'^healthcheck.json$', HealthcheckView.as_view(),
         name='healthcheck_json'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
+            {'document_root': settings.STATIC_ROOT}),
+    ]
