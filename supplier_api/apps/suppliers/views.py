@@ -15,7 +15,7 @@ class AllObjectMixin():
 
 
 class BaseSupplierViewSet(
-    NestedViewSetMixin, AllObjectMixin, viewsets.ReadOnlyModelViewSet):
+        NestedViewSetMixin, AllObjectMixin, viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows suppliers to be viewed.
 
@@ -31,7 +31,7 @@ class BaseSupplierViewSet(
 
 
 class BaseRepresentationOrderViewSet(
-    NestedViewSetMixin, AllObjectMixin, viewsets.ReadOnlyModelViewSet):
+        NestedViewSetMixin, AllObjectMixin, viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows rep orders to be viewed.
 

@@ -14,7 +14,7 @@ class SupplierApiTestCase(APITestCase):
         defendant1 = mommy.make(Defendant)
         defendant2 = mommy.make(Defendant)
         self.reporder = mommy.make(RepresentationOrder, supplier=self.supplier,
-                   defendant=defendant1)
+                                   defendant=defendant1)
         mommy.make(RepresentationOrder, supplier=self.supplier,
                    defendant=defendant2)
 
